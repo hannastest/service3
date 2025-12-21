@@ -1,0 +1,17 @@
+apiVersion: security.istio.io/v1
+kind: AuthorizationPolicy
+metadata:
+  name: service3
+spec:
+  selector:
+    matchLabels:
+      app: service3
+      service: service3
+  action: ALLOW
+  rules:
+  - from:
+    - source:
+        principals: 
+        - cluster.local/ns/projectA/sa/service3
+        - cluster.local/ns/projectA/sa/service3
+        
